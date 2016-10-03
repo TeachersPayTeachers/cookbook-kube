@@ -40,12 +40,12 @@ module KubernetesCookbook
 
       template '/etc/tmpfiles.d/kubernetes.conf' do
         source 'systemd/tmpfiles.erb'
-        cookbook 'kube'
+        cookbook 'tpt-cookbook-kube'
       end
 
       template '/etc/systemd/system/kubelet.service' do
         source 'systemd/kubelet.service.erb'
-        cookbook 'kube'
+        cookbook 'tpt-cookbook-kube'
         variables kubelet_command: kubelet_command,
           container_runtime_service: container_runtime_service
         notifies :run, 'execute[systemctl daemon-reload]', :immediately

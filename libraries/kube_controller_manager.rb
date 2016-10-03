@@ -32,7 +32,7 @@ module KubernetesCookbook
 
       template '/etc/systemd/system/kube-controller-manager.service' do
         source 'systemd/kube-controller-manager.service.erb'
-        cookbook 'kube'
+        cookbook 'tpt-cookbook-kube'
         variables kube_controller_manager_command: generator.generate
         notifies :run, 'execute[systemctl daemon-reload]', :immediately
       end

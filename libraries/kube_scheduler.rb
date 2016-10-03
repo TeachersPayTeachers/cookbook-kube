@@ -30,7 +30,7 @@ module KubernetesCookbook
 
       template '/etc/systemd/system/kube-scheduler.service' do
         source 'systemd/kube-scheduler.service.erb'
-        cookbook 'kube'
+        cookbook 'tpt-cookbook-kube'
         variables kube_scheduler_command: generator.generate
         notifies :run, 'execute[systemctl daemon-reload]', :immediately
       end

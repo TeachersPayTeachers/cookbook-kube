@@ -24,7 +24,7 @@ module KubernetesCookbook
     action :start do
       template '/etc/systemd/system/kube-proxy.service' do
         source 'systemd/kube-proxy.service.erb'
-        cookbook 'kube'
+        cookbook 'tpt-cookbook-kube'
         variables kube_proxy_command: generator.generate
         notifies :run, 'execute[systemctl daemon-reload]', :immediately
       end
